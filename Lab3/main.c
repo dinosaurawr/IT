@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <windows.system.h>
+#include "functions.h"
 
 void main() {
 	for (int i = 0; i >= 0; i++) {
@@ -24,7 +25,7 @@ void main() {
 			int n;
 			int* np = &n;
 			scanf("%d", np);
-			printf("Result is %lf", summ(*np));
+			printf("Result is %lf\n", summ(*np));
 			break;
 		case 2:
 			system("cls");
@@ -32,29 +33,33 @@ void main() {
 			double eps;
 			double* epsp = &eps;
 			scanf("%lf", epsp);
-			printf("Result is %lf", summ2(*epsp));
+			printf("Result is %lf\n", summ2(*epsp));
 			break;
 		case 3:
 			system("cls");
-			printf("Enter n and k\nExample: 12 \n2\n");
+			printf("Enter n and k\nExample:\n 12 \n2\n");
+			int numberElements;
+			int* numberElementsp = &numberElements;
 			int k;
 			int* kp = &k;
-			scanf("%d", np);
+			scanf("%d", numberElementsp);
 			scanf("%d", kp);
 			printf("Result is:\n");
-			printf(*np, *kp);
+			print(*numberElementsp, *kp);
 			break;
 		case 4:
 			system("cls");
 			printf("Enter epsilon\n");
-			scanf("%lf", epsp);
-			printf("Result is %d", findFirstElement(eps));
+			double epsilon;
+			double* epsilonp = &epsilon;
+			scanf("%lf", epsilonp);
+			printf("Result is %d\n", findFirstElement(eps));
 			break;
 		case 5:
 			system("cls");
 			printf("Enter epsilon\n");
 			scanf("%lf", epsp);
-			printf("Result is %d", findFirstNegativeElement(eps));
+			printf("Result is %d\n", findFirstNegativeElement(eps));
 			break;
 		default:
 			break;

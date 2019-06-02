@@ -1,7 +1,6 @@
 #include <math.h>
 
 int strlen(const char* str) {
-
 	int count = 0;
 	for (char* cur = str; *cur!="\0"; ++cur) {
 		++count;

@@ -53,13 +53,15 @@ void main() {
 			double epsilon;
 			double* epsilonp = &epsilon;
 			scanf("%lf", epsilonp);
-			printf("Result is %d\n", findFirstElement(eps));
+			printf("Result is %d\n", findFirstElement(*epsilonp));
 			break;
 		case 5:
 			system("cls");
 			printf("Enter epsilon\n");
-			scanf("%lf", epsp);
-			printf("Result is %d\n", findFirstNegativeElement(eps));
+			double epsilon2;
+			double* epsilonp2 = &epsilon2;
+			scanf("%lf", epsilonp2);
+			printf("Result is %d\n", findFirstNegativeElement(*epsilonp2));
 			break;
 		default:
 			break;

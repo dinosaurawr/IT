@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <math.h>
-
 void f(const double* px, double* resultp) {
 	*resultp = (1 - 2 * pow(sin(*px), 2)) / (1 + sin(2 * *px));
 }
-
-
 void main() {
 
 	const double x = 1.2;

@@ -1,12 +1,11 @@
 #include <math.h>
-
+#include "functions.h"
 int findFirstNegativeElement(double eps) {
-	int count = 0;
-	for (int i = 0;abs(function(i)) >= eps; i++) {
+	int i;
+	for (i = 0;1; i++) {
 		if (abs(function(i)) <= eps && function(i) < 0) {
 			break;
 		}
-		count++;
 	}
-	return count;
+	return i;
 }

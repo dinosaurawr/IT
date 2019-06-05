@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "header.h"
-
 void main() {
 	for (int i = 0; i >= 0; i++) {
 		//menu output
@@ -22,46 +21,37 @@ void main() {
 			system("cls");
 			printf("Enter string(less than 60 chars):\n");
 			char string[60];
-			char* stringp = &string;
-			scanf("%d", stringp);
-			printf("String length is %lf\n", strlen(stringp));
+			const char* stringp = &string;
+			scanf("%s", stringp);
+			printf("String length is %d\n", strlen(stringp));
 			break;
 		case 2:
 			system("cls");
-			printf("Enter epsilon:\n");
-			double eps;
-			double* epsp = &eps;
-			scanf("%lf", epsp);
-			printf("Result is %lf\n", summ2(*epsp));
+			printf("Enter string(less than 60 chars):\n");
+			char string2[60];
+			const char* stringp2 = &string2;
+			scanf("%s", stringp2);
+			printf("Enter substring(less than 60 chars):\n");
+			char substring[60];
+			const char* substringp = &substring;
+			scanf("%s", substringp);
+			printf("Substring pointer is %p\n", find(stringp2,substringp));
 			break;
 		case 3:
 			system("cls");
-			printf("Enter n and k\nExample:\n 12 \n2\n");
-			int numberElements;
-			int* numberElementsp = &numberElements;
-			int k;
-			int* kp = &k;
-			scanf("%d", numberElementsp);
-			scanf("%d", kp);
-			printf("Result is:\n");
-			print(*numberElementsp, *kp);
+			printf("Enter string(less than 60 chars):\n");
+			char str[60];
+			char* strp = &str;
+			scanf("%s", strp);
+			printf("Enter substring(less than 60 chars):\n");
+			const char* substr[60];
+			char* substrp = &substr;
+			scanf("%s", substrp);
+			mydelete(strp, substrp);
+			printf("New string is %s\n", str);
 			break;
 		case 4:
-			system("cls");
-			printf("Enter epsilon\n");
-			double epsilon;
-			double* epsilonp = &epsilon;
-			scanf("%lf", epsilonp);
-			printf("Result is %d\n", findFirstElement(*epsilonp));
-			break;
-		case 5:
-			system("cls");
-			printf("Enter epsilon\n");
-			double epsilon2;
-			double* epsilonp2 = &epsilon2;
-			scanf("%lf", epsilonp2);
-			printf("Result is %d\n", findFirstNegativeElement(*epsilonp2));
-			break;
+
 		default:
 			break;
 		}

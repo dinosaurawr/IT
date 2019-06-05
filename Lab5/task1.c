@@ -2,34 +2,72 @@
 
 int strlen(const char* str) {
 	int count = 0;
-	for (char* cur = str; *cur!="\0"; ++cur) {
+	for (char* cur = str; *cur != '\0'; cur++) {
 		++count;
 	}
 	return count;
 }
 
-char* find(const char* str, const char* substr) {
-	int lenStr = strlen(str);
-	int lenSub = strlen(substr);
+//char* find(const char* str, const char* substr) {
+//	int lenStr = strlen(str);
+//	int lenSub = strlen(substr);
+//
+//	for (int i = 0; i <= lenStr - lenSub; ++i) {
+//		int j;
+//		for (j = 0; str[i + j] == substr[j]; ++j);
+//		if (j - lenSub == 1 && i == lenStr - lenSub) return &str[i];
+//
+//	}
+//	return 0;
+//}
 
-	for (int i = 0; i <= lenStr - lenSub; ++i) {
-		int j;
-		for (j = 0; str[i + j] == substr[j]; ++j);
-		if (j - lenSub == 1 && i == lenStr - lenSub) return &str[i];
-
+char* find(const char* str, const char* substr)
+{
+	const char* temp, * c;
+	temp = substr;
+	while (*str)
+	{
+		c = str;
+		while (*(str++) == *(substr++))
+		{
+			if (!(*substr))
+			{
+				return (char*)c;
+			}
+			if (!(*str))
+			{
+				return NULL;
+			}
+		}
+		substr = temp;
 	}
-	return 0;
+	return NULL;
 }
 
-void delete(char* str, char* substr) {
-	char* firstSymb = find(str, substr);
-	char* lastSymb = find(str, substr) + strlen(substr);
-	for (char* curr = find(str, substr);  curr!=lastSymb;++curr) {
-		*curr = "0";
-	}
+void move(char *target, int targetLength, char *last, int lastLength)
+{
+    for (int pos = 0; pos < targetLength || pos < lastLength; pos++)
+    {
+        char temp = target[pos];
+        target[pos] = last[pos];
+        last[pos] = temp;
+    }
 }
 
-void strcpy(char* dest, int len, const char* src) {
+
+void mydelete(char *str, char *substr)
+{
+	char* index = find(str, substr);
+	char* cc = index + strlen(substr);
+	for (int pos = 0; pos < strlen(substr); pos++)
+	{
+		index[pos] = '\0';
+	}
+	move(index, strlen(substr), cc, strlen(cc));
+	return str;
+}
+
+void mystrcpy(char* dest, int len, const char* src) {
 
 	if (strlen(src) > len) {
 		int i;
@@ -44,7 +82,7 @@ void strcpy(char* dest, int len, const char* src) {
 	}
 }
 
-void strcat(char* dest, int len, const char* first, const char* second) {
+void mystrcat(char* dest, int len, const char* first, const char* second) {
 	int i;
 	dest[len - 1] = "\0";
 	for (i = 0; dest[i] != "\0"; ++i) {

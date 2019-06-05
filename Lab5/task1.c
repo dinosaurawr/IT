@@ -84,9 +84,9 @@ void mystrcpy(char* dest, int len, const char* src) {
 
 void mystrcat(char* dest, int len, const char* first, const char* second) {
 	int i;
-	dest[len - 1] = "\0";
-	for (i = 0; dest[i] != "\0"; ++i) {
-		if (first[i] != "\0") {
+	dest[len - 1] = '\0';
+	for (i = 0; dest[i] != '\0'; ++i) {
+		if (first[i] != '\0') {
 			dest[i] = first[i];
 		}
 		else

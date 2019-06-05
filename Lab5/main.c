@@ -51,7 +51,28 @@ void main() {
 			printf("New string is %s\n", str);
 			break;
 		case 4:
-
+			system("cls");
+			printf("Enter string(less than 60 chars):\n");
+			char str2[60];
+			char* strp2 = &str;
+			scanf("%s", strp2);
+			char tocopy[60];
+			char* tocopyp = &tocopy;
+			mystrcpy(tocopyp, 60, strp2);
+			printf("String copied, address is: %p\n", tocopyp);
+		case 5:
+			system("cls");
+			printf("Enter first string(less than 60 chars):\n");
+			char str3[60];
+			char* strp3 = &str3;
+			scanf("%s", strp3);
+			printf("Enter second string(less than 60 chars):\n");
+			const char* substr2[60];
+			char* substrp2 = &substr2;
+			scanf("%s", substrp2);
+			char dest[120];
+			mystrcat(&dest, 120, strp3, substrp2);
+			printf("New string is %s\n", dest);
 		default:
 			break;
 		}

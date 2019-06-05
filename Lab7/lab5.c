@@ -1,4 +1,4 @@
-char* find(const char* str, const char* substr) {
+char* findHeap(const char* str, const char* substr) {
 	int lenStr = strlen(str);
 	int lenSub = strlen(substr);
 

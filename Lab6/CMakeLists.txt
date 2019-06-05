@@ -5,5 +5,3 @@ cmake_minimum_required (VERSION 3.8)
 
 project ("Lab6")
 
-# Включите подпроекты.
-add_subdirectory ("Lab6")

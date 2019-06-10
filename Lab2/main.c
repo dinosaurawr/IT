@@ -1,5 +1,5 @@
 ﻿#include <stdio.h>
-#include "isInArea.c"
+#include "header.h"
 void main() {
 		printf("Input task number:\n");
 

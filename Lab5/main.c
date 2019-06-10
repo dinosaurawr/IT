@@ -3,7 +3,7 @@
 void main() {
 	for (int i = 0; i >= 0; i++) {
 		//menu output
-		for (int i = 1;i < 7;i++) {
+		for (int i = 1;i <7;i++) {
 			if (i == 6) {
 				printf("%d. Exit\n", i);
 			}
@@ -60,6 +60,7 @@ void main() {
 			char* tocopyp = &tocopy;
 			mystrcpy(tocopyp, 60, strp2);
 			printf("String copied, address is: %p\n", tocopyp);
+			break;
 		case 5:
 			system("cls");
 			printf("Enter first string(less than 60 chars):\n");
@@ -73,6 +74,7 @@ void main() {
 			char dest[120];
 			mystrcat(&dest, 120, strp3, substrp2);
 			printf("New string is %s\n", dest);
+			break;
 		default:
 			break;
 		}

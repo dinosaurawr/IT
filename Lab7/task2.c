@@ -1,6 +1,6 @@
+#include <stdlib.h>
 #include <stdio.h>
-
-void writeArray(int* arr, int n) {
+void lab7writeArray(int* arr, int n) {
 
 	for (int* cur = arr; cur - arr < n; ++cur) {
 		printf("%d ", *cur);
@@ -9,17 +9,15 @@ void writeArray(int* arr, int n) {
 	printf("\n");
 }
 
-void readArray(int* arr, int n) {
-
+void lab7readArray(int* arr, int n) {
+	printf("Enter %d elements", n);
 	for (int* cur = arr; cur - arr < n; ++cur) {
-		printf("Enter arr[%d]:\n", cur - arr);
 		scanf("%d", cur);
 	}
 
 }
-
 //bubble sort
-void sort(int* arr, int n) {
+void lab7sort(int* arr, int n) {
 
 	for (int i = n - 1; i >= 0; i--)
 	{
@@ -33,4 +31,12 @@ void sort(int* arr, int n) {
 			}
 		}
 	}
+}
+
+void sortHeapArray(int* arr, int n) {
+	lab7readArray(arr, n);
+	lab7writeArray(arr, n);
+	lab7sort(arr, n);
+	lab7writeArray(arr, n);
+	free(arr);
 }

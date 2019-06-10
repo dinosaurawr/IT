@@ -1,7 +1,8 @@
 void writeArray(int* arr, int n);
 void readArray(int* arr, int n);
-void sort(int* arr, int n);
-char* find(const char* str, const char* substr);
-void delete(char* str, char* substr);
-int strlen(const char* str);
-void strcpy(char* dest, int len, const char* src);
+void incrementHeapVariable();
+void sortHeapArray(int* arr, int n);
+char* delete(char* str, const char* substr);
+char* strcpy(const char* src);
+char* strcat(const char* first, const char* second);
+char* insert(const char* src, const char* str, int index);

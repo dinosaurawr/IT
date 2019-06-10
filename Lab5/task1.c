@@ -67,53 +67,74 @@ void mydelete(char *str, char *substr)
 	return str;
 }
 
-void mystrcpy(char* dest, int len, const char* src) {
+void mystrcpy(char* dest, int len, const char* src)
+{
+	char* d = dest;
+	const char* s = src;
+	int n = len;
 
-	if (strlen(src) > len) {
-		int i;
-		for (i = 0; i < len - 1; ++i) {
-			dest[i] = src[i];
+	if (n != 0) {
+		while (--n != 0) {
+			if ((*d++ = *s++) == '\0')
+				break;
 		}
-		dest[i + 1] = "\0";
 	}
-	else
-	{
-		while ((*dest++ = *src++) != '\0');
+
+	if (n == 0) {
+		if (len != 0)
+			* d = '\0';
 	}
 }
 
-void mystrcat(char* dest, int len, const char* first, const char* second) {
-	int i;
-	dest[len - 1] = '\0';
-	for (i = 0; dest[i] != '\0'; ++i) {
-		if (first[i] != '\0') {
-			dest[i] = first[i];
-		}
-		else
-		{
-			dest[i] = second[i];
-		}
-	}
+void mystrcat(char* dest, int len, const char* first, const char* second)
+{
+	char* d = dest;
+	const char* s = second;
+	int n = len;
+	int dlen;
 
+	mystrcpy(dest, len, first);
+
+	while (n-- != 0 && *d != '\0')
+		d++;
+	dlen = d - dest;
+	n = len - dlen;
+
+	while (*s != '\0') {
+		if (n != 1) {
+			*d++ = *s;
+			n--;
+		}
+		s++;
+	}
+	*d = '\0';
 }
-///returns 0 if index is not in src
-_Bool insert(const char* src, const char* str, int index, char* dest, int len) {
-	
-	if (index < 0 || index > strlen(src) - 1) {
+
+_Bool myinsert(const char* s, const char* w, int p, char* dest, int n)
+{
+	const char* q;
+	int i, j;
+	char* t = dest;
+
+	mystrcpy(dest, n, s);
+
+	if ((p >= n) || !*w)
 		return 0;
-	}
-	else {
-		int i;
-		dest[len - 1] = "\0";
-		for (i = 0; dest[i] != "\0"; ++i) {
-			if (dest[i] = index) {
-				int j,k;
-				for (j = i,k=0; dest[j] != "\0" || j == index + strlen(str) - 2; ++j,++k, i = j) {
-					dest[j] = str[k];
-				}
-			}
-			dest[i] = src[i];
-		}
-	}
 
+	for (q = w; *q; ++q);
+	for (dest += p; *dest; ++dest);
+
+	i = (int)(q - w);
+	j = (int)(dest - t);
+	if ((i + j) >= n)
+		return 0;
+
+	dest += i;
+	for (q = t + p; dest > q; --dest)
+		* dest = *(dest - i);
+
+	dest = t + p;
+	while (*w)
+		* dest++ = *w++;
+	return 1;
 }

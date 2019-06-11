@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "Task6_func.c"
 void main() {
 	x = 1.2;
 	printf("x=%lf\n", x);

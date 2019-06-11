@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+
+double func(double x);
 void main() {
 	double x = 1.2;
 	printf("x=%lf\n", x);
@@ -9,7 +11,7 @@ void main() {
 	printf("x=%lf\n", x);
 	printf("f(x)=%lf\n", func(x));
 }
-double f(double x) {
+double func(double x) {
 	double res;
 	res = (1 - 2 * pow(sin(x), 2)) / (1 + sin(2 * x));
 	return res;
